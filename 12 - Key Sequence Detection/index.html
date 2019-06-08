@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+  <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
+</head>
+<body>
+<script>
+  var keys = [];
+  const word = "salif";
+  const doc = document.querySelector('body');
+  function keyPressed(event) {
+    keys.push(event.key);
+    if(keys.length > word.length) {
+      keys.splice(0, 1);
+    }
+    if(keys.join('').includes(word)) {
+      var html = document.createElement('h1');
+      html.innerText = 'Found!';
+      doc.appendChild(html);
+    }
+  }
+  window.addEventListener('keyup', keyPressed);
+</script>
+</body>
+</html>
